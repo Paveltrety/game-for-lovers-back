@@ -1,6 +1,6 @@
-import Confides from "../Schema/confides.js";
+import Confides from "../schema/confides";
 
-export const getAllConfides = async (req, res) => {
+export const getAllConfides = async (req: any, res: any) => {
   try {
     const { page = 1, limit = 10 } = req.query;
     const confidesCards = await Confides.find({})

@@ -1,6 +1,6 @@
-import Vulgars from "../schema/vulgars.js";
+import Vulgars from "../schema/vulgars";
 
-export const getAllVulgars = async (req, res) => {
+export const getAllVulgars = async (req: any, res: any) => {
   try {
     const { page = 1, limit = 10 } = req.query;
 
@@ -10,7 +10,7 @@ export const getAllVulgars = async (req, res) => {
       .sort("id")
       .limit(limit);
 
-    const count = await Confides.count();
+    const count = await Vulgars.count();
 
     res.json({
       data: vulgarsCards,

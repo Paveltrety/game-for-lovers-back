@@ -1,7 +1,7 @@
 import Router from "express";
-import { getAllConfides } from "../handlers/confidesHandlers.js";
+import { getAllConfides } from "../handlers/confidesHandlers";
 
-const router = new Router();
+const router = Router();
 
 router.get("/confides", getAllConfides);
 

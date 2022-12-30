@@ -1,7 +1,7 @@
 import Router from "express";
-import { getAllVulgars } from "../handlers/vulgarsHandlers.js";
+import { getAllVulgars } from "../handlers/vulgarsHandlers";
 
-const router = new Router();
+const router = Router();
 
 router.get("/vulgars", getAllVulgars);
 

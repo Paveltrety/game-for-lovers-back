@@ -1,9 +1,9 @@
 import express from "express";
 import mongoose from "mongoose";
-import { PORT } from "./constants/server.js";
-import { createDbUrl } from "./utils/createDbUrl.js";
-import confidesRoutes from "./routers/confidesRoutes.js";
-import vulgarsRoutes from "./routers/vulgarsRoutes.js";
+import { PORT } from "./constants/server";
+import { createDbUrl } from "./utils/createDbUrl";
+import confidesRoutes from "./routers/confidesRoutes";
+import vulgarsRoutes from "./routers/vulgarsRoutes";
 import cors from "cors";
 import * as dotenv from "dotenv";
 
