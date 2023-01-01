@@ -4,6 +4,8 @@ import { PORT } from "./constants/server";
 import { createDbUrl } from "./utils/createDbUrl";
 import confidesRoutes from "./routers/confidesRoutes";
 import vulgarsRoutes from "./routers/vulgarsRoutes";
+import userRoutes from "./routers/userRoutes";
+
 import cors from "cors";
 import * as dotenv from "dotenv";
 
@@ -15,6 +17,7 @@ app.use(express.json());
 app.use(cors());
 app.use("/", confidesRoutes);
 app.use("/", vulgarsRoutes);
+app.use("/", userRoutes);
 
 async function startApp() {
   try {
