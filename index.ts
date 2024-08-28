@@ -1,31 +1,30 @@
-import express from "express";
-import mongoose from "mongoose";
-import { PORT } from "./constants/server";
-import { createDbUrl } from "./utils/createDbUrl";
-import confidesRoutes from "./routers/confidesRoutes";
-import vulgarsRoutes from "./routers/vulgarsRoutes";
-import userRoutes from "./routers/userRoutes";
-
 import cors from "cors";
-import * as dotenv from "dotenv";
+import express from 'express';
+import mongoose from 'mongoose';
+import acquaintanceRoutes from './routers/cards/acquaintances';
+import vulgarsRoutes from './routers/cards/vulgars';
+import confidesRoutes from './routers/cards/confides';
 
-dotenv.config();
-const DB_URL = createDbUrl(process.env.MONGO_USER, process.env.MONGO_PASSWORD);
 const app = express();
+const PORT = process.env.PORT || 3000;
 
+// Подключение к MongoDB
+mongoose.connect('mongodb://127.0.0.1:27017/cards').then(() => {
+  console.log('Connected to MongoDB');
+}).catch((error) => {
+  console.error('Connection error', error);
+});
+
+// Middleware
 app.use(express.json());
 app.use(cors());
-app.use("/", confidesRoutes);
-app.use("/", vulgarsRoutes);
-app.use("/", userRoutes);
 
-async function startApp() {
-  try {
-    await mongoose.connect(DB_URL);
-    app.listen(PORT, () => console.log(""));
-  } catch (error) {
-    console.log(error);
-  }
-}
+// Роуты
+app.use('/api', acquaintanceRoutes);
+app.use('/api', vulgarsRoutes);
+app.use('/api', confidesRoutes);
 
-startApp();
+// Запуск сервера
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
