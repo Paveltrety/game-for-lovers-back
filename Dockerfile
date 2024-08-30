@@ -1,5 +1,5 @@
 # Используем базовый образ с Node.js
-FROM node:18
+FROM node:22.6.0-alpine as build
 
 # Копируем package.json и package-lock.json в рабочую директорию
 COPY package*.json ./
