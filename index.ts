@@ -17,7 +17,12 @@ mongoose.connect('mongodb://127.0.0.1:27017/cards').then(() => {
 
 // Middleware
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: '*', // Разрешает запросы с любых источников. Настройте это в соответствии с вашими требованиями.
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Разрешенные методы
+  allowedHeaders: ['Content-Type', 'Authorization'], // Разрешенные заголовки
+}));
+
 
 // Роуты
 app.use('/api', acquaintanceRoutes);
