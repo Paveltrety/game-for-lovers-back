@@ -12,4 +12,4 @@ COPY . .
 
 
 # Определяем команду для запуска приложения
-CMD ["node", "index.js"]
+CMD ["node", "index.ts"]
