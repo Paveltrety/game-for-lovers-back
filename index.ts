@@ -9,7 +9,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Подключение к MongoDB
-mongoose.connect('mongodb://127.0.0.1:27017/cards').then(() => {
+mongoose.connect('mongodb://185.239.50.193:27017/cards').then(() => {
   console.log('Connected to MongoDB');
 }).catch((error) => {
   console.error('Connection error', error);
