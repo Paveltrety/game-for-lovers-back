@@ -1,9 +1,12 @@
 import cors from "cors";
 import express from 'express';
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
 import acquaintanceRoutes from './routers/cards/acquaintances';
 import vulgarsRoutes from './routers/cards/vulgars';
 import confidesRoutes from './routers/cards/confides';
+
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 8000;
