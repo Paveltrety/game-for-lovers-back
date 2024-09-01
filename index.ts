@@ -6,7 +6,7 @@ import vulgarsRoutes from './routers/cards/vulgars';
 import confidesRoutes from './routers/cards/confides';
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8000;
 
 // Подключение к MongoDB
 mongoose.connect('mongodb://185.239.50.193:27017/cards').then(() => {
