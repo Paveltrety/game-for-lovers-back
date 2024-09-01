@@ -7,6 +7,8 @@ COPY package*.json ./
 # Устанавливаем зависимости
 RUN npm install
 
+RUN npm run build
+
 # Копируем остальные файлы приложения в рабочую директорию
 COPY . .
 
