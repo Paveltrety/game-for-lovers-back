@@ -9,7 +9,7 @@ import confidesRoutes from './routers/cards/confides';
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 3000;
 
 // Подключение к MongoDB
 mongoose.connect(process.env.DATABASE_URL as string).then(() => {
